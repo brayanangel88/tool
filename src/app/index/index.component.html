@@ -1,0 +1,80 @@
+<body>
+  <nz-card class="login-form" nzTitle="Inicio de sesion">
+    <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-control [nzErrorTip]="emailError">
+          <nz-input-group nzPrefixIcon="mail">
+            <input type="email" nz-input formControlName="email" placeholder="Username" autocomplete="new-text" />
+            <ng-template #emailError let-control>
+              <ng-container *ngIf="control.hasError('email')">
+                El correo electronico no es valido
+              </ng-container>
+              <ng-container *ngIf="control.hasError('required')">
+                Por favor ingrese su correo electrónico!
+              </ng-container>
+            </ng-template>
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Por favor ingrese su contraseña!">
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="password" autocomplete="off" placeholder="Password" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <button nz-button class="login-form-button login-form-margin" [disabled]="!validateForm.valid" nzType="primary"
+        (click)="loadOne()" [nzLoading]="isLoadingOne">Iniciar Sesión</button>
+      </form>
+      <button nz-button class="login-form-button-registro login-form-margin" (click)="showModal()"
+        [nzType]="'default'">Registrarse</button>
+    
+    <nz-modal [nzStyle]="{width: '600px'}" [(nzVisible)]="isVisible" [nzFooter]="null" nzTitle="Registro" (nzOnCancel)="handleCancel()">
+      <form *nzModalContent nz-form [formGroup]="validateFormRegistro"
+        (ngSubmit)="submitFormRegistro(validateFormRegistro.value)">
+        <nz-form-item>
+          <nz-form-label [nzSpan]="7" nzRequired>E-mail</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="emailErrorTpl">
+            <input nz-input formControlName="email" placeholder="email" type="email" />
+            <ng-template #emailErrorTpl let-control>
+              <ng-container *ngIf="control.hasError('email')">
+                El correo electronico no es valido
+              </ng-container>
+              <ng-container *ngIf="control.hasError('required')">
+                Por favor ingrese su correo electrónico!
+              </ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSpan]="7" nzRequired>Contraseña</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzHasFeedback nzErrorTip="Por favor ingrese su contraseña!">
+            <input nz-input type="password" formControlName="password" (ngModelChange)="validateConfirmPassword()" />
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSpan]="7" nzRequired>Confirmar contraseña</nz-form-label>
+          <nz-form-control [nzSpan]="12" nzHasFeedback [nzErrorTip]="passwordErrorTpl">
+            <input nz-input type="password" formControlName="confirm" placeholder="Confirme su contraseña" />
+            <ng-template #passwordErrorTpl let-control>
+              <ng-container *ngIf="control.hasError('required')">
+                Por favor confirme su contraseña!
+              </ng-container>
+              <ng-container *ngIf="control.hasError('confirm')">
+                Contraseña incorrecta!
+              </ng-container>
+            </ng-template>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control [nzOffset]="7" [nzSpan]="12">
+            <button nz-button nzType="primary" [disabled]="!validateFormRegistro.valid">Registrarse</button>
+            <button nz-button (click)="resetForm($event)">Borrar</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+      <p *nzModalContent>Modal Content</p>
+    </nz-modal>
+  </nz-card>
+
+</body>

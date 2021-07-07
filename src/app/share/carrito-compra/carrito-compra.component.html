@@ -1,0 +1,51 @@
+<nz-modal [nzStyle]="{width: '600px',height:'90%',top:'35px' }" [(nzVisible)]="isVisible" [nzFooter]="null"
+    nzTitle="Carrito de compra" (nzOnCancel)="handleCancel()">
+    <p *nzModalContent>
+        <li *ngFor="let producto of listaProductosCarrito">
+            <div class="container">
+                <div class="row">
+                    <div class="col" style="padding: initial;">
+                        <img src="{{producto.imagen}}" style="width: 100%;margin: 0px;border-radius: 6px;" alt="">
+                    </div>
+                    <div class="col">
+                        <b>{{producto.nombre}}</b>
+                    </div>
+                    <div class="col">
+                        <select style="width: 100%;margin: 0px;border-radius: 3px" [(ngModel)]="producto.quantity"
+                            (change)="editarCarrito(producto.id,producto)" name="miselect">
+                            <option [value]="item" *ngFor="let item of lista">{{item}}</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <b>${{producto.valor * producto.quantity}}</b>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-danger" style="padding: inherit;" (click)="eliminarProducto(producto.id)">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+
+        </li>
+        <li>
+            <div class="container">
+                <div class="row">
+                    <div class="col" style="text-align: right;font-size: x-large">
+                        <b>Total</b>
+                    </div>
+                    <div class="col" style="text-align: right;font-size: x-large">
+                        <b>$ {{total}}</b>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="container">
+                <div class="col" style="text-align: right;">
+                    <button class="btn btn-success" style="text-align: right" >Comprar</button>
+                </div>
+            </div>
+        </li>
+
+
+    </p>
+</nz-modal>

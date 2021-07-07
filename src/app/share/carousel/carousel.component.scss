@@ -1,0 +1,60 @@
+[nz-carousel-content] {
+    text-align: center;
+    height: 80px;
+    line-height: 160px;
+    background: #364d79;
+    color: #fff;
+    overflow: hidden;
+  }
+ 
+  .btn-car {
+    width: 90%;
+    background-color: #319a0596;
+    border: none; 
+    color: white; 
+    padding: 10px 10px; 
+    font-size: 17px; 
+    cursor: pointer; 
+    border-radius: 5px
+  }
+  
+  nz-card-meta{
+    
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  nz-card .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 238px;
+    left: 51%;
+  }
+  
+  nz-card:hover .tooltiptext {
+    visibility: visible;
+  }
+  nz-card {
+    position: relative;
+    display: inline-block;
+    //border-bottom: 1px dotted black;
+    margin-top: 15px;
+    width: 250px;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%,-50%);
+  }

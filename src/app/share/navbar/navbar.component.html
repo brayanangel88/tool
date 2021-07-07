@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-sm" style="background-color: #11263a ;">
+    <a class="navbar-brand" style="color: aliceblue;" href="#">Marketplace</a>
+    <!-- <div class="navbar-nav ml-auto my-2 my-lg-0">
+      
+    </div> -->
+    <div ngbDropdown display="dynamic" class="navbar-nav ml-auto">
+      
+          <li  class="form-inline my-2 my-lg-0">
+               <button class="btn-user mr-sm-2" id="dropdownBasic1" ngbDropdownToggle ><i class="fa fa-user"></i></button>
+        <div ngbDropdownMenu  aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem (click)="cerrarSesion()" >Cerrar Sesion</button>
+          </div> 
+          <button class="btn-car my-2 my-sm-0" (click)="carritoCompra()"><i class="fa fa-shopping-cart">
+            <span>1</span>
+        </i></button>
+          </li >
+              <!-- <button class="btn-car" ><i class="fa fa-shopping-cart my-2 my-sm-0"> -->
+            <!-- <span>1</span> -->
+        <!-- </i></button> -->
+    </div>
+  </nav>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
