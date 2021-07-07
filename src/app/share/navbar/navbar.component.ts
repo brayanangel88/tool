@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { textChangeRangeIsUnchanged } from 'typescript';
@@ -12,9 +12,7 @@ import { textChangeRangeIsUnchanged } from 'typescript';
 export class NavbarComponent implements OnInit {
   
   @Output() abirCarrito = new EventEmitter<any>();
-
   constructor(private router: Router ,private authService :AuthService) { }
-
   ngOnInit(): void {
   }
 
@@ -30,5 +28,8 @@ export class NavbarComponent implements OnInit {
   }
   carritoCompra(){
     this.abirCarrito.emit()
+  }
+  productosCarrito(){
+    return localStorage.getItem('totalProductosCarrito');
   }
 }

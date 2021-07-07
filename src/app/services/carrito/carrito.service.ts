@@ -9,35 +9,35 @@ import { map } from 'rxjs/operators';
 export class CarritoService {
 
 
-  idCarrito='';
+  idCarrito:any;
   numeroDeProductos = 0;
-  precioAcumulado = 0;
   productosCarrito:any;
 
-  mapaProducto = new Map();
+
 
 
   private carritoSubscribe: Subject<any> = new Subject();
 
 
   constructor(private afs: AngularFirestore) {
-    ;
+    this.idCarrito = localStorage.getItem('idCarrito');
 
   }
 
   crearCarrito(){
     this.afs.collection('carts').add({status: false}).then((response)=>{
       this.idCarrito = response.id
+      localStorage.setItem('idCarrito',(this.idCarrito));
+      localStorage.setItem('totalProductosCarrito',('0'));
     })
   }
 
-
   verficarCarrito() {
-    
     return this.productosCarrito = this.afs.collection('product_carts', ref => ref.where('cart_id', '==', this.idCarrito)).snapshotChanges().pipe(map(changes =>{
       return changes.map(action =>{
         const data = action.payload.doc.data() as any;
         data.id = action.payload.doc.id;
+        
         return data;
       })
     }));;
@@ -45,6 +45,9 @@ export class CarritoService {
 
   editarProducto(id:string,data:any){
     return this.afs.collection('product_carts').doc(id).set(data)
+  }
+  editarEstadoCarrito(data:any){
+    return this.afs.collection('carts').doc(this.idCarrito).set(data)
   }
 
   agregarProducto(idProducto: string, cantidad: number,imagen:string,nombre:string,valor:number,cantidadDisponible:number) {

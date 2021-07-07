@@ -11,7 +11,7 @@
             <button ngbDropdownItem (click)="cerrarSesion()" >Cerrar Sesion</button>
           </div> 
           <button class="btn-car my-2 my-sm-0" (click)="carritoCompra()"><i class="fa fa-shopping-cart">
-            <span>1</span>
+            <span>{{productosCarrito()?productosCarrito():0}}</span>
         </i></button>
           </li >
               <!-- <button class="btn-car" ><i class="fa fa-shopping-cart my-2 my-sm-0"> -->

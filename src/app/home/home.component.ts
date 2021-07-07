@@ -10,14 +10,12 @@ import { CarritoCompraComponent } from '../share/carrito-compra/carrito-compra.c
 export class HomeComponent implements OnInit {
   @ViewChild(CarritoCompraComponent, { static: false })
   private carritoCompra!: CarritoCompraComponent;
+  totalProductosCarrito: number = 0;
 
   ngOnInit(): void {
   }
 
-  
   abirCarrito(){
-    this.carritoCompra.isVisible = true;
     this.carritoCompra.llenarCarrito();
   }
-
 }

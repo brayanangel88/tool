@@ -1,13 +1,11 @@
 <div class="container" style="margin-top: 50px;">
     <div class="row justify-content-center">
         <div *ngFor="let producto of listaProductos" class="col-md-auto">
-            <nz-card clase="card-carousel" [nzCover]="coverTemplate" [nzActions]="[actionEllipsis]">
-                <!-- <div iddescripcion> -->
+            <nz-card [nzCover]="coverTemplate" [nzActions]="[actionEllipsis]">
                 <nz-card-meta nzTitle={{producto.nombre}} nzDescription=${{producto.valor}}>
 
                 </nz-card-meta>
                 <span class="tooltiptext">{{producto.descripcion}}</span>
-                <!-- </div> -->
             </nz-card>
             <ng-template #coverTemplate>
                 <nz-carousel [nzEffect]="effect">
@@ -22,4 +20,3 @@
         </div>
     </div>
 </div>
-<div>

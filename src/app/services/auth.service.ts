@@ -24,7 +24,7 @@ export class AuthService {
   }
 
    logout() {
-    
+     localStorage.setItem('idCarrito',(''));
       return this.afAuth.signOut()
    
   }

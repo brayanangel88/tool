@@ -19,6 +19,8 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NavbarModule } from './share/navbar/navbar.module';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
+import { StoreModule } from '@ngrx/store';
+import { carritoReducer } from './carrito.reducer';
 
 
 
@@ -49,7 +51,8 @@ import { en_US } from 'ng-zorro-antd/i18n';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     NgbModule,
-    NzCardModule
+    NzCardModule,
+    StoreModule.forRoot({carrito:carritoReducer}, {})
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
