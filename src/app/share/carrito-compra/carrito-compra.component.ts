@@ -100,6 +100,13 @@ export class CarritoCompraComponent implements OnInit {
     
     
   }
+  showConfirm(id:any): void {
+    this.modal.confirm({
+      nzTitle: '<i>¿Desea eliminar este producto?</i>',
+      nzContent: '',
+      nzOnOk: () => this.eliminarProducto(id)
+    });
+  }
   eliminarProducto(id: any) {
     this.carritoCompra.eliminarProducto(id).then(() => {
       this.calcularTotal();

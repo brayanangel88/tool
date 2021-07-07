@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } fro
 import { Router } from '@angular/router';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { Observable, Observer } from 'rxjs';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../services/auth/auth.service';
 import { CarritoService } from '../services/carrito/carrito.service';
 
 AuthService
@@ -96,7 +96,11 @@ export class IndexComponent implements OnInit {
     }
     const {email,password}=value;
     this.authService.register(email,password).then((userCredential) => {
-      var user = userCredential.user;
+      this.modal.success({
+        nzTitle: 'Registro',
+        nzContent:  'Registro Completado'
+      });
+      this.isVisible=false;
     }).catch((error) => {
       let content ='Fallo la peticion'
       if (error.code == "auth/email-already-in-use") {

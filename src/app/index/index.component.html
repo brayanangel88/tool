@@ -7,10 +7,10 @@
             <input type="email" nz-input formControlName="email" placeholder="Username" autocomplete="new-text" />
             <ng-template #emailError let-control>
               <ng-container *ngIf="control.hasError('email')">
-                El correo electronico no es valido
+                 El correo electrónico no es válido
               </ng-container>
               <ng-container *ngIf="control.hasError('required')">
-                Por favor ingrese su correo electrónico!
+                ¡Por favor ingrese su correo electrónico!
               </ng-container>
             </ng-template>
           </nz-input-group>
@@ -38,10 +38,10 @@
             <input nz-input formControlName="email" placeholder="email" type="email" />
             <ng-template #emailErrorTpl let-control>
               <ng-container *ngIf="control.hasError('email')">
-                El correo electronico no es valido
+                 El correo electrónico no es válido
               </ng-container>
               <ng-container *ngIf="control.hasError('required')">
-                Por favor ingrese su correo electrónico!
+                ¡Por favor ingrese su correo electrónico!
               </ng-container>
             </ng-template>
           </nz-form-control>
@@ -58,10 +58,10 @@
             <input nz-input type="password" formControlName="confirm" placeholder="Confirme su contraseña" />
             <ng-template #passwordErrorTpl let-control>
               <ng-container *ngIf="control.hasError('required')">
-                Por favor confirme su contraseña!
+                ¡Por favor confirme su contraseña!
               </ng-container>
               <ng-container *ngIf="control.hasError('confirm')">
-                Contraseña incorrecta!
+                ¡Contraseña incorrecta!
               </ng-container>
             </ng-template>
           </nz-form-control>
